@@ -12,7 +12,8 @@ namespace Proyecto
         {
 
             Console.WriteLine("Hola grupo como estan?");
-             Console.ReadKey();
+            Console.WriteLine("Espero que bien, les dejo un saludo y un abrazo a todos");
+            Console.ReadKey();
         }
     }
 }
