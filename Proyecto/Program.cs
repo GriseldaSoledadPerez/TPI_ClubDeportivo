@@ -1,19 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace Proyecto
 {
-    internal class Program
+    internal static class Program
     {
-        static void Main(string[] args)
+        /// <summary>
+        ///  The main entry point for the application.
+        /// </summary>
+        [STAThread]
+        static void Main()
         {
-
-            Console.WriteLine("Hola grupo como estan?");
-            Console.WriteLine("Espero que bien, les dejo un saludo y un abrazo a todos");
-            Console.ReadKey();
+            // To customize application configuration such as set high DPI settings or default font,
+            // see https://aka.ms/applicationconfiguration.
+            ApplicationConfiguration.Initialize();
+            Application.Run(new Form1());
         }
     }
 }
