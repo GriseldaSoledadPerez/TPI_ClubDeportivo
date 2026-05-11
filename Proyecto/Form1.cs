@@ -71,7 +71,17 @@ namespace Proyecto
             if (tablaLogin.Rows.Count > 0)
             {
                 // quiere decir que el resultado tiene 1 fila por lo que el usuario EXISTE
-                MessageBox.Show("Ingreso exitoso");
+                //Informamos con unmensaje al usuario
+                MessageBox.Show("Ingreso exitoso", "MENSAJE DEL SISTEMA",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //Establecida la conexion Pasamos al formulario Principal
+                //Se debe INSTANCIAR un objeto de la clase formulario principal
+                frmPrincipal Principal = new frmPrincipal();
+                //Lo siguiente permite tomar el dominio de la primera columna de la primera fila del resultado de la query
+                Principal.rol = Convert.ToString(tablaLogin.Rows[0][0]);
+                Principal.usuario = Convert.ToString(txtUsuario.Text);
+                Principal.Show();
+                this.Hide();
             }
             else
             {
