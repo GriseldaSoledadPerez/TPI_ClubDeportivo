@@ -40,11 +40,11 @@
             // lblTitulo
             // 
             lblTitulo.AutoSize = true;
-            lblTitulo.Font = new Font("Comic Sans MS", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitulo.Font = new Font("Noto Serif", 14.2499981F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             lblTitulo.ForeColor = Color.Navy;
-            lblTitulo.Location = new Point(317, 53);
+            lblTitulo.Location = new Point(384, 53);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(222, 21);
+            lblTitulo.Size = new Size(276, 27);
             lblTitulo.TabIndex = 0;
             lblTitulo.Text = "SISTEMA CLUB DEPORTIVO";
             lblTitulo.Click += label1_Click;
@@ -52,9 +52,9 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(58, 53);
+            pictureBox1.Location = new Point(36, 53);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(213, 231);
+            pictureBox1.Size = new Size(318, 260);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
@@ -62,7 +62,8 @@
             // 
             // btnIngresar
             // 
-            btnIngresar.Location = new Point(347, 235);
+            btnIngresar.Font = new Font("Noto Serif", 11.2499981F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            btnIngresar.Location = new Point(444, 241);
             btnIngresar.Name = "btnIngresar";
             btnIngresar.Size = new Size(148, 49);
             btnIngresar.TabIndex = 2;
@@ -72,9 +73,9 @@
             // 
             // txtUsuario
             // 
-            txtUsuario.Location = new Point(317, 111);
+            txtUsuario.Location = new Point(402, 115);
             txtUsuario.Name = "txtUsuario";
-            txtUsuario.Size = new Size(211, 23);
+            txtUsuario.Size = new Size(239, 23);
             txtUsuario.TabIndex = 3;
             txtUsuario.Text = "USUARIO";
             txtUsuario.TextChanged += txtUsuario_TextChanged;
@@ -83,9 +84,9 @@
             // 
             // txtPass
             // 
-            txtPass.Location = new Point(317, 161);
+            txtPass.Location = new Point(402, 167);
             txtPass.Name = "txtPass";
-            txtPass.Size = new Size(211, 23);
+            txtPass.Size = new Size(239, 23);
             txtPass.TabIndex = 4;
             txtPass.Text = "CONTRASEÑA";
             txtPass.Enter += txtPass_Enter;
