@@ -14,6 +14,7 @@ namespace Proyecto
 {
     public partial class frmAsignar : Form
     {
+        int numClient;
         public frmAsignar()
         {
             InitializeComponent();
@@ -150,10 +151,10 @@ namespace Proyecto
                 con.Open();
 
                 MySqlDataReader reader = cmd.ExecuteReader();
-
+                
                 if (reader.Read())
                 {
-                    txtDni.Text = reader.GetInt32(0).ToString();
+                    numClient = reader.GetInt32(0);
                     lblCliente.Text = reader.GetString(1) + " " + reader.GetString(2);
                 }
                 else
@@ -174,21 +175,43 @@ namespace Proyecto
         {
             try
             {
-                int idCliente = Convert.ToInt32(txtDni.Text);
+                int idCliente = Convert.ToInt32(numClient);
                 int idEdicion = Convert.ToInt32(dtgvActividades.CurrentRow.Cells[0].Value);
 
                 MySqlConnection con = Conexion.getInstancia().CrearConcexion();
 
-                string query = @"insert into inscripcion
+                con.Open();
+
+                // Verificar si ya está inscripto
+                string verificar = @"SELECT COUNT(*) 
+                             FROM inscripcion 
+                             WHERE NCliente = @cli 
+                             AND idEdicion = @edi";
+
+                MySqlCommand cmdVerificar = new MySqlCommand(verificar, con);
+                cmdVerificar.Parameters.AddWithValue("@cli", idCliente);
+                cmdVerificar.Parameters.AddWithValue("@edi", idEdicion);
+
+                int existe = Convert.ToInt32(cmdVerificar.ExecuteScalar());
+
+                if (existe > 0)
+                {
+                    MessageBox.Show("El cliente ya está anotado en esta actividad");
+                    con.Close();
+                    return;
+                }
+
+                // Insertar si no existe
+                string query = @"INSERT INTO inscripcion
                         (NCliente, idEdicion, fecha, pagado)
-                        values (@cli, @edi, curdate(), false);";
+                        VALUES (@cli, @edi, CURDATE(), false)";
 
                 MySqlCommand cmd = new MySqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@cli", idCliente);
                 cmd.Parameters.AddWithValue("@edi", idEdicion);
 
-                con.Open();
                 cmd.ExecuteNonQuery();
+
                 con.Close();
 
                 MessageBox.Show("Asignación realizada correctamente");
@@ -197,6 +220,6 @@ namespace Proyecto
             {
                 MessageBox.Show(ex.Message);
             }
-    }
+        }
     }
 }
