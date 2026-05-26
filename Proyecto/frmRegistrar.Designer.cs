@@ -46,6 +46,9 @@
             txtTelefono = new TextBox();
             txtEmail = new TextBox();
             cboTipo = new ComboBox();
+            lblApto = new Label();
+            rbtAptoSi = new RadioButton();
+            rbtAptoNo = new RadioButton();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -73,7 +76,7 @@
             // 
             // btnRegistrar
             // 
-            btnRegistrar.Location = new Point(400, 357);
+            btnRegistrar.Location = new Point(404, 372);
             btnRegistrar.Name = "btnRegistrar";
             btnRegistrar.Size = new Size(91, 47);
             btnRegistrar.TabIndex = 2;
@@ -83,7 +86,7 @@
             // 
             // btnLimpiar
             // 
-            btnLimpiar.Location = new Point(526, 357);
+            btnLimpiar.Location = new Point(530, 372);
             btnLimpiar.Name = "btnLimpiar";
             btnLimpiar.Size = new Size(91, 47);
             btnLimpiar.TabIndex = 3;
@@ -93,7 +96,7 @@
             // 
             // btnVolver
             // 
-            btnVolver.Location = new Point(643, 357);
+            btnVolver.Location = new Point(650, 372);
             btnVolver.Name = "btnVolver";
             btnVolver.Size = new Size(91, 47);
             btnVolver.TabIndex = 4;
@@ -199,12 +202,46 @@
             cboTipo.TabIndex = 16;
             cboTipo.SelectedIndexChanged += cboTipo_SelectedIndexChanged;
             // 
+            // lblApto
+            // 
+            lblApto.AutoSize = true;
+            lblApto.Location = new Point(404, 296);
+            lblApto.Name = "lblApto";
+            lblApto.Size = new Size(103, 22);
+            lblApto.TabIndex = 17;
+            lblApto.Text = "Apto Médico";
+            // 
+            // rbtAptoSi
+            // 
+            rbtAptoSi.AutoSize = true;
+            rbtAptoSi.Location = new Point(549, 296);
+            rbtAptoSi.Name = "rbtAptoSi";
+            rbtAptoSi.Size = new Size(43, 26);
+            rbtAptoSi.TabIndex = 18;
+            rbtAptoSi.TabStop = true;
+            rbtAptoSi.Text = "SI";
+            rbtAptoSi.UseVisualStyleBackColor = true;
+            // 
+            // rbtAptoNo
+            // 
+            rbtAptoNo.AutoSize = true;
+            rbtAptoNo.Location = new Point(612, 296);
+            rbtAptoNo.Name = "rbtAptoNo";
+            rbtAptoNo.Size = new Size(52, 26);
+            rbtAptoNo.TabIndex = 19;
+            rbtAptoNo.TabStop = true;
+            rbtAptoNo.Text = "NO";
+            rbtAptoNo.UseVisualStyleBackColor = true;
+            // 
             // frmRegistrar
             // 
             AutoScaleDimensions = new SizeF(10F, 22F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(1142, 660);
+            Controls.Add(rbtAptoNo);
+            Controls.Add(rbtAptoSi);
+            Controls.Add(lblApto);
             Controls.Add(cboTipo);
             Controls.Add(txtEmail);
             Controls.Add(txtTelefono);
@@ -251,5 +288,8 @@
         private TextBox txtTelefono;
         private TextBox txtEmail;
         private ComboBox cboTipo;
+        private Label lblApto;
+        private RadioButton rbtAptoSi;
+        private RadioButton rbtAptoNo;
     }
 }
