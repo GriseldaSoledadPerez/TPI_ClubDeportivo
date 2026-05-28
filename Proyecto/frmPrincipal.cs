@@ -43,12 +43,5 @@ namespace Proyecto
             registro.Show();
             this.Hide();
         }
-
-        private void btnCobrar_Click(object sender, EventArgs e)
-        {
-            frmCobrar registro = new frmCobrar();
-            registro.Show();
-            this.Hide();
-        }
     }
 }

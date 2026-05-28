@@ -13,7 +13,6 @@ namespace Proyecto.Entidades
         public int DocC {  get; set; }
         public string? Telefono { get; set; }
         public string? Email { get; set; }
-        public bool AptoFisico { get; set; }
 
     }
 }

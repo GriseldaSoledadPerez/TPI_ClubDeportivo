@@ -39,81 +39,50 @@ namespace Proyecto
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
-            // 1. Validación de campos obligatorios
             if (txtNombre.Text == "" || txtApellido.Text == "" || cboTipo.Text == "" ||
-                txtDocumento.Text == "" || txtTelefono.Text == "" || txtEmail.Text == "")
+txtDocumento.Text == "" || txtTelefono.Text == "" || txtEmail.Text == "")
             {
-                MessageBox.Show(
-                    "Debe completar datos requeridos (*)",
-                    "AVISO DEL SISTEMA",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error
-                );
-                return;
+                MessageBox.Show("Debe completar datos requeridos (*) ",
+                "AVISO DEL SISTEMA", MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
             }
-
-            // 2. Validación obligatoria de apto físico (SOLO SE PERMITE SI ES "SÍ")
-            if (!rbtAptoSi.Checked)
+            else
             {
-                MessageBox.Show(
-                    "No se puede registrar sin apto físico",
-                    "AVISO DEL SISTEMA",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
-                );
-                return;
-            }
-
-            // 3. Crear cliente
-            E_Cliente client = new E_Cliente();
-
-            client.NombreC = txtNombre.Text;
-            client.ApellidoC = txtApellido.Text;
-            client.TDocC = cboTipo.Text;
-            client.DocC = Convert.ToInt32(txtDocumento.Text);
-            client.Telefono = txtTelefono.Text;
-            client.Email = txtEmail.Text;
-
-            // 4. Apto físico (obligatoriamente true porque ya validamos arriba)
-            client.AptoFisico = true;
-
-            // 5. Guardar en base de datos
-            Datos.Clientes clientes = new Datos.Clientes();
-            string respuesta = clientes.Nuevo_Cliente(client);
-
-            bool esnumero = int.TryParse(respuesta, out int codigo);
-
-            if (esnumero)
-            {
-                if (codigo == 1)
+                string respuesta;
+                E_Cliente client = new E_Cliente();
+                client.NombreC = txtNombre.Text;
+                client.ApellidoC = txtApellido.Text;
+                client.TDocC = cboTipo.Text;
+                client.DocC = Convert.ToInt32(txtDocumento.Text);
+                client.Telefono = txtTelefono.Text;
+                client.Email = txtEmail.Text;
+                // instanciamos para usar el metodo dentro de postulantes
+                Datos.Clientes clientes = new Datos.Clientes();
+                respuesta = clientes.Nuevo_Cliente(client);
+                bool esnumero = int.TryParse(respuesta, out int codigo);
+                if (esnumero)
                 {
-                    MessageBox.Show(
-                        "POSTULANTE YA EXISTE",
-                        "AVISO DEL SISTEMA",
+                    if (codigo == 1)
+                    {
+                        MessageBox.Show("POSTULANTE YA EXISTE", "AVISO DEL SISTEMA",
                         MessageBoxButtons.OK,
-                        MessageBoxIcon.Error
-                    );
-                }
-                else
-                {
-                    MessageBox.Show(
-                        "Se almacenó con éxito con el código Nro " + respuesta,
-                        "AVISO DEL SISTEMA",
+                        MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        MessageBox.Show("se almaceno con exito con el codigo Nro " + respuesta, "AVISO DEL SISTEMA",
                         MessageBoxButtons.OK,
-                        MessageBoxIcon.Information
-                    );
-
-                    // 6. Limpiar formulario
-                    txtNombre.Text = "";
-                    txtApellido.Text = "";
-                    cboTipo.Text = "";
-                    txtDocumento.Text = "";
-                    txtTelefono.Text = "";
-                    txtEmail.Text = "";
-                    txtNombre.Focus();
-
-                    rbtAptoSi.Checked = false;
+                        MessageBoxIcon.Question);
+                        txtNombre.Text = "";
+                        txtApellido.Text = "";
+                        cboTipo.Text = "";
+                        txtDocumento.Text = "";
+                        txtTelefono.Text = "";
+                        txtEmail.Text = "";
+                        txtNombre.Focus();
+                    }
                 }
+
             }
         }
 
@@ -127,8 +96,7 @@ namespace Proyecto
             txtTelefono.Text = "";
             txtEmail.Text = "";
             txtNombre.Focus();
-            rbtAptoSi.Checked = false;
-            rbtAptoNo.Checked = false;
+
         }
     }
 }
