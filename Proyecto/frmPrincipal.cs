@@ -43,5 +43,12 @@ namespace Proyecto
             registro.Show();
             this.Hide();
         }
+
+        private void btnAsignar_Click(object sender, EventArgs e)
+        {
+            frmAsignar registro = new frmAsignar();
+            registro.Show();
+            this.Hide();
+        }
     }
 }

@@ -46,7 +46,15 @@
             txtTelefono = new TextBox();
             txtEmail = new TextBox();
             cboTipo = new ComboBox();
+            rbtAptoSi = new RadioButton();
+            rbtAptoNo = new RadioButton();
+            lblApto = new Label();
+            label1 = new Label();
+            rbSocio = new RadioButton();
+            rbNoSocio = new RadioButton();
+            panel1 = new Panel();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // pictureBox1
@@ -73,7 +81,7 @@
             // 
             // btnRegistrar
             // 
-            btnRegistrar.Location = new Point(400, 357);
+            btnRegistrar.Location = new Point(404, 419);
             btnRegistrar.Name = "btnRegistrar";
             btnRegistrar.Size = new Size(91, 47);
             btnRegistrar.TabIndex = 2;
@@ -83,7 +91,7 @@
             // 
             // btnLimpiar
             // 
-            btnLimpiar.Location = new Point(526, 357);
+            btnLimpiar.Location = new Point(539, 419);
             btnLimpiar.Name = "btnLimpiar";
             btnLimpiar.Size = new Size(91, 47);
             btnLimpiar.TabIndex = 3;
@@ -93,7 +101,7 @@
             // 
             // btnVolver
             // 
-            btnVolver.Location = new Point(643, 357);
+            btnVolver.Location = new Point(666, 419);
             btnVolver.Name = "btnVolver";
             btnVolver.Size = new Size(91, 47);
             btnVolver.TabIndex = 4;
@@ -199,12 +207,88 @@
             cboTipo.TabIndex = 16;
             cboTipo.SelectedIndexChanged += cboTipo_SelectedIndexChanged;
             // 
+            // rbtAptoSi
+            // 
+            rbtAptoSi.AutoSize = true;
+            rbtAptoSi.Location = new Point(588, 365);
+            rbtAptoSi.Name = "rbtAptoSi";
+            rbtAptoSi.Size = new Size(42, 26);
+            rbtAptoSi.TabIndex = 17;
+            rbtAptoSi.TabStop = true;
+            rbtAptoSi.Text = "Si";
+            rbtAptoSi.UseVisualStyleBackColor = true;
+            // 
+            // rbtAptoNo
+            // 
+            rbtAptoNo.AutoSize = true;
+            rbtAptoNo.Location = new Point(666, 365);
+            rbtAptoNo.Name = "rbtAptoNo";
+            rbtAptoNo.Size = new Size(49, 26);
+            rbtAptoNo.TabIndex = 18;
+            rbtAptoNo.TabStop = true;
+            rbtAptoNo.Text = "No";
+            rbtAptoNo.UseVisualStyleBackColor = true;
+            // 
+            // lblApto
+            // 
+            lblApto.AutoSize = true;
+            lblApto.Location = new Point(423, 369);
+            lblApto.Name = "lblApto";
+            lblApto.Size = new Size(93, 22);
+            lblApto.TabIndex = 19;
+            lblApto.Text = "Apto Físico";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(404, 293);
+            label1.Name = "label1";
+            label1.Size = new Size(0, 22);
+            label1.TabIndex = 20;
+            // 
+            // rbSocio
+            // 
+            rbSocio.AutoSize = true;
+            rbSocio.Location = new Point(36, 17);
+            rbSocio.Name = "rbSocio";
+            rbSocio.Size = new Size(68, 26);
+            rbSocio.TabIndex = 21;
+            rbSocio.TabStop = true;
+            rbSocio.Text = "Socio";
+            rbSocio.UseVisualStyleBackColor = true;
+            // 
+            // rbNoSocio
+            // 
+            rbNoSocio.AutoSize = true;
+            rbNoSocio.Location = new Point(147, 17);
+            rbNoSocio.Name = "rbNoSocio";
+            rbNoSocio.Size = new Size(93, 26);
+            rbNoSocio.TabIndex = 22;
+            rbNoSocio.TabStop = true;
+            rbNoSocio.Text = "No Socio";
+            rbNoSocio.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.SteelBlue;
+            panel1.Controls.Add(rbSocio);
+            panel1.Controls.Add(rbNoSocio);
+            panel1.Location = new Point(447, 286);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(280, 59);
+            panel1.TabIndex = 23;
+            // 
             // frmRegistrar
             // 
             AutoScaleDimensions = new SizeF(10F, 22F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(1142, 660);
+            Controls.Add(panel1);
+            Controls.Add(label1);
+            Controls.Add(lblApto);
+            Controls.Add(rbtAptoNo);
+            Controls.Add(rbtAptoSi);
             Controls.Add(cboTipo);
             Controls.Add(txtEmail);
             Controls.Add(txtTelefono);
@@ -228,6 +312,8 @@
             Text = "frmRegistrar";
             Load += frmRegistrar_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -251,5 +337,12 @@
         private TextBox txtTelefono;
         private TextBox txtEmail;
         private ComboBox cboTipo;
+        private RadioButton rbtAptoSi;
+        private RadioButton rbtAptoNo;
+        private Label lblApto;
+        private Label label1;
+        private RadioButton rbSocio;
+        private RadioButton rbNoSocio;
+        private Panel panel1;
     }
 }
