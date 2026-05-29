@@ -45,9 +45,20 @@ txtDocumento.Text == "" || txtTelefono.Text == "" || txtEmail.Text == "")
                 MessageBox.Show("Debe completar datos requeridos (*) ",
                 "AVISO DEL SISTEMA", MessageBoxButtons.OK,
                 MessageBoxIcon.Error);
+                return;
             }
-            else
+            // 2. Validación obligatoria de apto físico (SOLO SE PERMITE SI ES "SÍ")
+            if (!rbtAptoSi.Checked)
             {
+                MessageBox.Show(
+                    "No se puede registrar sin apto físico",
+                    "AVISO DEL SISTEMA",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+                return;
+            }
+            // 3. Crear cliente
                 string respuesta;
                 E_Cliente client = new E_Cliente();
                 client.NombreC = txtNombre.Text;
@@ -56,8 +67,12 @@ txtDocumento.Text == "" || txtTelefono.Text == "" || txtEmail.Text == "")
                 client.DocC = Convert.ToInt32(txtDocumento.Text);
                 client.Telefono = txtTelefono.Text;
                 client.Email = txtEmail.Text;
-                // instanciamos para usar el metodo dentro de postulantes
-                Datos.Clientes clientes = new Datos.Clientes();
+                client.EsSocio = rbSocio.Checked;
+            // 4. Apto físico (obligatoriamente true porque ya validamos arriba)
+                client.Apto = true;
+
+            // 5. instanciamos para usar el metodo dentro de postulantes
+            Datos.Clientes clientes = new Datos.Clientes();
                 respuesta = clientes.Nuevo_Cliente(client);
                 bool esnumero = int.TryParse(respuesta, out int codigo);
                 if (esnumero)
@@ -80,11 +95,11 @@ txtDocumento.Text == "" || txtTelefono.Text == "" || txtEmail.Text == "")
                         txtTelefono.Text = "";
                         txtEmail.Text = "";
                         txtNombre.Focus();
-                    }
+                        rbtAptoSi.Checked = false;
+                }
                 }
 
             }
-        }
 
         //Limpiamos los objetos para un nuevo ingreso
         private void btnLimpiar_Click(object sender, EventArgs e)
@@ -96,6 +111,8 @@ txtDocumento.Text == "" || txtTelefono.Text == "" || txtEmail.Text == "")
             txtTelefono.Text = "";
             txtEmail.Text = "";
             txtNombre.Focus();
+            rbtAptoSi.Checked = false;
+            rbtAptoNo.Checked = false;
 
         }
     }

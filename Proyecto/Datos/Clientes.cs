@@ -27,6 +27,8 @@ namespace Proyecto.Datos
                 comando.Parameters.Add("Doc", MySqlDbType.Int32).Value = client.DocC;
                 comando.Parameters.Add("Tel", MySqlDbType.VarChar).Value = client.Telefono;
                 comando.Parameters.Add("Mail", MySqlDbType.VarChar).Value = client.Email;
+                comando.Parameters.Add("EsSocio", MySqlDbType.Byte).Value = client.EsSocio? 1 : 0;
+                comando.Parameters.Add("Apto", MySqlDbType.Byte).Value = client.Apto ? 1 : 0;
 
                 MySqlParameter ParCodigo = new MySqlParameter();
                 ParCodigo.ParameterName = "rta";

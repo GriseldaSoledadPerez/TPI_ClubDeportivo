@@ -33,6 +33,7 @@
             btnRegistrar = new Button();
             btnCobrar = new Button();
             btnListar = new Button();
+            btnAsignar = new Button();
             SuspendLayout();
             // 
             // lblIngreso
@@ -60,10 +61,10 @@
             // 
             // btnRegistrar
             // 
-            btnRegistrar.BackColor = Color.AliceBlue;
+            btnRegistrar.BackColor = Color.Navy;
             btnRegistrar.FlatStyle = FlatStyle.Flat;
             btnRegistrar.Font = new Font("Noto Serif", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            btnRegistrar.ForeColor = Color.Navy;
+            btnRegistrar.ForeColor = Color.AliceBlue;
             btnRegistrar.Location = new Point(101, 97);
             btnRegistrar.Margin = new Padding(3, 4, 3, 4);
             btnRegistrar.Name = "btnRegistrar";
@@ -79,12 +80,12 @@
             btnCobrar.FlatStyle = FlatStyle.Flat;
             btnCobrar.Font = new Font("Noto Serif", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             btnCobrar.ForeColor = Color.Navy;
-            btnCobrar.Location = new Point(419, 97);
+            btnCobrar.Location = new Point(101, 250);
             btnCobrar.Margin = new Padding(3, 4, 3, 4);
             btnCobrar.Name = "btnCobrar";
             btnCobrar.Size = new Size(230, 95);
             btnCobrar.TabIndex = 3;
-            btnCobrar.Text = "Cobrar Cuota";
+            btnCobrar.Text = "Cobrar";
             btnCobrar.UseVisualStyleBackColor = false;
             // 
             // btnListar
@@ -92,7 +93,7 @@
             btnListar.BackColor = Color.Navy;
             btnListar.Font = new Font("Noto Serif", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             btnListar.ForeColor = SystemColors.ButtonHighlight;
-            btnListar.Location = new Point(265, 250);
+            btnListar.Location = new Point(419, 250);
             btnListar.Margin = new Padding(3, 4, 3, 4);
             btnListar.Name = "btnListar";
             btnListar.Size = new Size(230, 95);
@@ -101,12 +102,28 @@
             btnListar.UseVisualStyleBackColor = false;
             btnListar.Click += button2_Click;
             // 
+            // btnAsignar
+            // 
+            btnAsignar.BackColor = Color.AliceBlue;
+            btnAsignar.FlatStyle = FlatStyle.Flat;
+            btnAsignar.Font = new Font("Noto Serif", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            btnAsignar.ForeColor = Color.Navy;
+            btnAsignar.Location = new Point(419, 97);
+            btnAsignar.Margin = new Padding(3, 4, 3, 4);
+            btnAsignar.Name = "btnAsignar";
+            btnAsignar.Size = new Size(230, 95);
+            btnAsignar.TabIndex = 5;
+            btnAsignar.Text = "Asignar Actividades";
+            btnAsignar.UseVisualStyleBackColor = false;
+            btnAsignar.Click += btnAsignar_Click;
+            // 
             // frmPrincipal
             // 
             AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(914, 570);
+            Controls.Add(btnAsignar);
             Controls.Add(btnListar);
             Controls.Add(btnCobrar);
             Controls.Add(btnRegistrar);
@@ -128,5 +145,6 @@
         private Button btnRegistrar;
         private Button btnCobrar;
         private Button btnListar;
+        private Button btnAsignar;
     }
 }
