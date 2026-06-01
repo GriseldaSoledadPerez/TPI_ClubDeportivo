@@ -25,10 +25,10 @@ namespace Proyecto.Datos
              this.servidor = "localhost";
              this.puerto = "3306";
              this.usuario = "root";
-             this.clave = "36739323";
+             this.clave = "PASSWORD_LOCAL";
         }
         // proceso de interacción
-        public MySqlConnection CrearConcexion()
+        public MySqlConnection CrearConexion()
         {
             // instanciamos una conexion
             MySqlConnection? cadena = new MySqlConnection();

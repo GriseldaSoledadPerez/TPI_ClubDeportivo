@@ -50,5 +50,12 @@ namespace Proyecto
             registro.Show();
             this.Hide();
         }
+
+        private void btnCobrar_Click(object sender, EventArgs e)
+        {
+            Cobrar cobrar = new Cobrar();
+            cobrar.Show();
+            this.Hide();
+        }
     }
 }
