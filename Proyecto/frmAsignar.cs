@@ -15,6 +15,7 @@ namespace Proyecto
     public partial class frmAsignar : Form
     {
         int numClient;
+        bool esSocio;
         public frmAsignar()
         {
             InitializeComponent();
@@ -30,7 +31,7 @@ namespace Proyecto
 
             try
             {
-                sqlCon = Conexion.getInstancia().CrearConcexion();
+                sqlCon = Conexion.getInstancia().CrearConexion();
 
                 string query = @"select e.idEdicion, a.Nombre, e.dia, e.horario,
                          concat(p.NombreP,' ',p.ApellidoP),
@@ -144,9 +145,9 @@ namespace Proyecto
         {
             try
             {
-                MySqlConnection con = Conexion.getInstancia().CrearConcexion();
+                MySqlConnection con = Conexion.getInstancia().CrearConexion();
 
-                string query = @"select NCliente, NombreC, ApellidoC
+                string query = @"select NCliente, NombreC, ApellidoC, EsSocio
                          from cliente
                          where DocC = @dni";
 
@@ -161,6 +162,15 @@ namespace Proyecto
                 {
                     numClient = reader.GetInt32(0);
                     lblCliente.Text = reader.GetString(1) + " " + reader.GetString(2);
+                    esSocio = reader.GetBoolean(3);
+                    if (esSocio)
+                    {  
+                        MessageBox.Show(
+                            "El cliente es SOCIO.\nTiene pase libre a todas las actividades.",
+                            "Información",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
+                    }
                 }
                 else
                 {
@@ -183,7 +193,7 @@ namespace Proyecto
                 int idCliente = Convert.ToInt32(numClient);
                 int idEdicion = Convert.ToInt32(dtgvActividades.CurrentRow.Cells[0].Value);
 
-                MySqlConnection con = Conexion.getInstancia().CrearConcexion();
+                MySqlConnection con = Conexion.getInstancia().CrearConexion();
 
                 con.Open();
 
