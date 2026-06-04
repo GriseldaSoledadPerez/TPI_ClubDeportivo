@@ -34,6 +34,7 @@
             btnCobrar = new Button();
             btnListar = new Button();
             btnAsignar = new Button();
+            btnVencHoy = new Button();
             SuspendLayout();
             // 
             // lblIngreso
@@ -91,17 +92,17 @@
             // 
             // btnListar
             // 
-            btnListar.BackColor = Color.Navy;
+            btnListar.BackColor = Color.RoyalBlue;
             btnListar.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             btnListar.ForeColor = SystemColors.ButtonHighlight;
-            btnListar.Location = new Point(419, 250);
+            btnListar.Location = new Point(262, 385);
             btnListar.Margin = new Padding(3, 4, 3, 4);
             btnListar.Name = "btnListar";
             btnListar.Size = new Size(230, 95);
             btnListar.TabIndex = 4;
             btnListar.Text = "Listar Socios c/Cuota vencida";
             btnListar.UseVisualStyleBackColor = false;
-            btnListar.Click += button2_Click;
+            btnListar.Click += btnListaVenc_Click;
             // 
             // btnAsignar
             // 
@@ -118,12 +119,27 @@
             btnAsignar.UseVisualStyleBackColor = false;
             btnAsignar.Click += btnAsignar_Click;
             // 
+            // btnVencHoy
+            // 
+            btnVencHoy.BackColor = Color.Navy;
+            btnVencHoy.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            btnVencHoy.ForeColor = SystemColors.ButtonHighlight;
+            btnVencHoy.Location = new Point(419, 250);
+            btnVencHoy.Margin = new Padding(3, 4, 3, 4);
+            btnVencHoy.Name = "btnVencHoy";
+            btnVencHoy.Size = new Size(230, 95);
+            btnVencHoy.TabIndex = 6;
+            btnVencHoy.Text = "Listar Socios c/cuota vencida HOY";
+            btnVencHoy.UseVisualStyleBackColor = false;
+            btnVencHoy.Click += btnVencHoy_Click;
+            // 
             // frmPrincipal
             // 
             AutoScaleDimensions = new SizeF(9F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(914, 570);
+            Controls.Add(btnVencHoy);
             Controls.Add(btnAsignar);
             Controls.Add(btnListar);
             Controls.Add(btnCobrar);
@@ -147,5 +163,6 @@
         private Button btnCobrar;
         private Button btnListar;
         private Button btnAsignar;
+        private Button btnVencHoy;
     }
 }

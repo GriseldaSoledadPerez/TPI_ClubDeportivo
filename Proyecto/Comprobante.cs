@@ -27,7 +27,7 @@ namespace Proyecto
         public string forma_c = "";
         public int cuotas_c;
         public float valorCuota_c;
-        
+
 
 
         private void label1_Click(object sender, EventArgs e)
@@ -75,8 +75,6 @@ namespace Proyecto
             //Regreso al formulario principal después de dar el aviso
             MessageBox.Show("Operación Exitosa", "AVISO DEL SISTEMA",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
-            frmPrincipal principal = new frmPrincipal();
-            principal.Show();
             this.Close();
         }
 
@@ -95,6 +93,21 @@ namespace Proyecto
         }
 
         private void lblCuotas_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblTitulo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblTipoCC_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }

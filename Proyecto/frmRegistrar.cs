@@ -47,6 +47,16 @@ txtDocumento.Text == "" || txtTelefono.Text == "" || txtEmail.Text == "")
                 MessageBoxIcon.Error);
                 return;
             }
+            if (!rbSocio.Checked && !rbNoSocio.Checked)
+                {
+                 MessageBox.Show(
+                     "Debe indicar si el cliente es Socio o No Socio",
+                     "AVISO DEL SISTEMA",
+                     MessageBoxButtons.OK,
+                     MessageBoxIcon.Warning
+                 );
+                 return;
+             }
             // 2. Validación obligatoria de apto físico (SOLO SE PERMITE SI ES "SÍ")
             if (!rbtAptoSi.Checked)
             {
@@ -58,8 +68,14 @@ txtDocumento.Text == "" || txtTelefono.Text == "" || txtEmail.Text == "")
                 );
                 return;
             }
+            if (!long.TryParse(txtDocumento.Text, out _))
+            {
+                MessageBox.Show("El DNI solo puede contener números.");
+                txtDocumento.Focus();
+                return;
+            }
             // 3. Crear cliente
-                string respuesta;
+            string respuesta;
                 E_Cliente client = new E_Cliente();
                 client.NombreC = txtNombre.Text;
                 client.ApellidoC = txtApellido.Text;
@@ -113,6 +129,8 @@ txtDocumento.Text == "" || txtTelefono.Text == "" || txtEmail.Text == "")
             txtNombre.Focus();
             rbtAptoSi.Checked = false;
             rbtAptoNo.Checked = false;
+            rbSocio.Checked = false;
+            rbNoSocio.Checked = false;  
 
         }
     }

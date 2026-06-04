@@ -54,5 +54,29 @@ namespace Proyecto.Datos
 
             return salida;
         }
+
+        public void ActualizarVencimientos()
+        {
+            MySqlConnection con = Conexion.getInstancia().CrearConexion();
+
+            try
+            {
+                con.Open();
+                string sql = @"
+    UPDATE socio
+    SET EstadoSocio = 0
+    WHERE FechaVencimiento < CURDATE()";
+
+                MySqlCommand cmd = new MySqlCommand(sql, con);
+                cmd.ExecuteNonQuery();
+
+            }
+            finally
+            {
+                if (con.State == ConnectionState.Open)
+                    con.Close();
+            }
+        }
     }
+    
 }
