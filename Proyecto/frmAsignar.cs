@@ -188,6 +188,16 @@ namespace Proyecto
 
         private void btnAsignar_Click(object sender, EventArgs e)
         {
+            if (numClient == 0)
+            {
+                MessageBox.Show(
+                    "Debe buscar un cliente antes de asignar una actividad",
+                    "Atención",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                return;
+            }
             try
             {
                 int idCliente = Convert.ToInt32(numClient);
@@ -212,6 +222,31 @@ namespace Proyecto
                 if (existe > 0)
                 {
                     MessageBox.Show("El cliente ya está anotado en esta actividad");
+                    con.Close();
+                    return;
+                }
+                string sql = @"SELECT a.cupo FROM actividad a INNER JOIN edicion e
+                  ON a.NActividad = e.NActividad WHERE e.idEdicion = @edi";
+
+                MySqlCommand cmdCupo = new MySqlCommand(sql, con);
+                cmdCupo.Parameters.AddWithValue("@edi", idEdicion);
+
+                int cupo = Convert.ToInt32(cmdCupo.ExecuteScalar());
+                string sql2 = @"SELECT COUNT(*) FROM inscripcion WHERE idEdicion = @edi";
+
+                MySqlCommand cmdIns = new MySqlCommand(sql2, con);
+                cmdIns.Parameters.AddWithValue("@edi", idEdicion);
+
+                int inscriptos = Convert.ToInt32(cmdIns.ExecuteScalar());
+                // VALIDACIÓN
+                if (inscriptos >= cupo)
+                {
+                    MessageBox.Show(
+                        "La actividad ya alcanzó el cupo máximo.",
+                        "Sin cupos",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+
                     con.Close();
                     return;
                 }
