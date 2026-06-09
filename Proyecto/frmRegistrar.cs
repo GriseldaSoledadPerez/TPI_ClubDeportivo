@@ -95,7 +95,7 @@ txtDocumento.Text == "" || txtTelefono.Text == "" || txtEmail.Text == "")
                 {
                     if (codigo == 1)
                     {
-                        MessageBox.Show("POSTULANTE YA EXISTE", "AVISO DEL SISTEMA",
+                        MessageBox.Show("CLIENTE YA EXISTE", "AVISO DEL SISTEMA",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Error);
                     }
