@@ -4,7 +4,7 @@
 
 ## 📋 Descripción del Proyecto
 
-Sistema completo de administración para clubes deportivos que permite gestionar socios, actividades, pagos de cuotas y acceso a información de afiliados. La aplicación implementa principios de Programación Orientada a Objetos (POO) en C# con acceso a base de datos.
+Sistema de administración para clubes deportivos que permite gestionar socios, actividades, pagos de cuotas y acceso a información de afiliados. La aplicación implementa principios de Programación Orientada a Objetos (POO) en C# con acceso a base de datos.
 
 ## ✨ Características Principales
 
