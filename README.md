@@ -86,6 +86,10 @@ SISTEMA CLUB DEPORTIVO
 
 ![Panel Principal](imagenes/principal.jpeg)
 
+### Registro de Clientes
+
+![Registrar Clientes](imagenes/registro.jpeg)
+
 ### Asignación de Actividades
 
 ![Asignar Actividad](imagenes/asignar.jpeg)
