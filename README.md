@@ -104,13 +104,13 @@ SISTEMA CLUB DEPORTIVO
 
 ![Lista ](imagenes/lista.jpeg)
 
-## 👩‍💻 Autora
+## 👩‍💻 Autores
 
 **Griselda Soledad Perez, Laime Micaela, Paez Brian, Lamas Alejandro**
 
 ## 📄 Licencia
 
-Proyecto académico con fines educativos.
+Proyecto académico con fines educativos. IFTS N° 29
 
 ---
 
