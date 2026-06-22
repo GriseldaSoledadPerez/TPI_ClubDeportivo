@@ -106,7 +106,7 @@ SISTEMA CLUB DEPORTIVO
 
 ## 👩‍💻 Autora
 
-**Griselda Soledad Perez**
+**Griselda Soledad Perez, Laime Micaela, Paez Brian, Lamas Alejandro**
 
 ## 📄 Licencia
 
