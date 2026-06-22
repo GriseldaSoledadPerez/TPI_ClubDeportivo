@@ -104,6 +104,14 @@ SISTEMA CLUB DEPORTIVO
 
 ![Lista ](imagenes/lista.jpeg)
 
+## 📘 Manual de usuario
+
+Podés descargar o visualizar el manual completo aquí:
+
+📄 Manual de usuario: `manual_usuario.pdf`  (ubicado en la carpeta /docs)
+
+![Manual](imagenes/manual.jpeg)
+
 ## 👩‍💻 Autores
 
 **Griselda Soledad Perez, Laime Micaela, Paez Brian, Lamas Alejandro**
